@@ -9,23 +9,21 @@
             instruments.Add(new Strings("Violin", "Veeeee", true, 4, true));
             instruments.Add(new Percussion("Drumkit", "Bom", true, 5, true));
 
-            foreach(Instrument instrument in instruments)
+            foreach(dynamic instrument in instruments)
             {
-                dynamic usedInstrument = Convert.ChangeType(instrument, instrument.GetType());
-
-                usedInstrument.Play();
+                instrument.Play();
 
                 for (int i = 0; i < 5; i++)
                 {
-                    usedInstrument.Break();
+                    instrument.Break();
                 }
 
-                usedInstrument.Clean();
-                usedInstrument.Repair();
+                instrument.Clean();
+                instrument.Repair();
 
                 for (int i = 0; i < 5; i++)
                 {
-                    usedInstrument.Break();
+                    instrument.Break();
                 }
             }
             Console.ReadLine();
